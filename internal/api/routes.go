@@ -5,7 +5,7 @@ import (
 )
 
 func (api *Api) BindRoutes() {
-	api.Router.Route("/aoi", func(r chi.Router) {
+	api.Router.Route("/api", func(r chi.Router) {
 		r.Route("/v1", func(r chi.Router) {
 			r.Route("/users/", func(r chi.Router) {
 				r.Post("/signup", api.handleSignupUser)
