@@ -9,7 +9,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-type ProductsService struct {
+type BidsService struct {
 	pool    *pgxpool.Pool
 	queries *pgstore.Queries
 }
