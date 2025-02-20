@@ -7,9 +7,9 @@ package pgstore
 
 import (
 	"context"
+	"time"
 
 	"github.com/google/uuid"
-	"github.com/jackc/pgx/v5/pgtype"
 )
 
 const createUser = `-- name: CreateUser :one
@@ -45,20 +45,20 @@ SELECT
     password_hash,
     email,
     bio,
-    create_at,
+    created_at,
     updated_at
 FROM users
 WHERE email = $1
 `
 
 type GetUserByEmailRow struct {
-	ID           uuid.UUID          `json:"id"`
-	UserName     string             `json:"user_name"`
-	PasswordHash []byte             `json:"password_hash"`
-	Email        string             `json:"email"`
-	Bio          string             `json:"bio"`
-	CreateAt     pgtype.Timestamptz `json:"create_at"`
-	UpdatedAt    pgtype.Timestamptz `json:"updated_at"`
+	ID           uuid.UUID `json:"id"`
+	UserName     string    `json:"user_name"`
+	PasswordHash []byte    `json:"password_hash"`
+	Email        string    `json:"email"`
+	Bio          string    `json:"bio"`
+	CreatedAt    time.Time `json:"created_at"`
+	UpdatedAt    time.Time `json:"updated_at"`
 }
 
 func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEmailRow, error) {
@@ -70,7 +70,7 @@ func (q *Queries) GetUserByEmail(ctx context.Context, email string) (GetUserByEm
 		&i.PasswordHash,
 		&i.Email,
 		&i.Bio,
-		&i.CreateAt,
+		&i.CreatedAt,
 		&i.UpdatedAt,
 	)
 	return i, err
@@ -83,20 +83,20 @@ SELECT
     password_hash,
     email,
     bio,
-    create_at,
+    created_at,
     updated_at
 FROM users
 WHERE id = $1
 `
 
 type GetUserByIdRow struct {
-	ID           uuid.UUID          `json:"id"`
-	UserName     string             `json:"user_name"`
-	PasswordHash []byte             `json:"password_hash"`
-	Email        string             `json:"email"`
-	Bio          string             `json:"bio"`
-	CreateAt     pgtype.Timestamptz `json:"create_at"`
-	UpdatedAt    pgtype.Timestamptz `json:"updated_at"`
+	ID           uuid.UUID `json:"id"`
+	UserName     string    `json:"user_name"`
+	PasswordHash []byte    `json:"password_hash"`
+	Email        string    `json:"email"`
+	Bio          string    `json:"bio"`
+	CreatedAt    time.Time `json:"created_at"`
+	UpdatedAt    time.Time `json:"updated_at"`
 }
 
 func (q *Queries) GetUserById(ctx context.Context, id uuid.UUID) (GetUserByIdRow, error) {
@@ -108,7 +108,7 @@ func (q *Queries) GetUserById(ctx context.Context, id uuid.UUID) (GetUserByIdRow
 		&i.PasswordHash,
 		&i.Email,
 		&i.Bio,
-		&i.CreateAt,
+		&i.CreatedAt,
 		&i.UpdatedAt,
 	)
 	return i, err

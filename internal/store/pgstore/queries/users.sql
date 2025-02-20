@@ -11,7 +11,7 @@ SELECT
     password_hash,
     email,
     bio,
-    create_at,
+    created_at,
     updated_at
 FROM users
 WHERE id = $1;
@@ -23,7 +23,7 @@ SELECT
     password_hash,
     email,
     bio,
-    create_at,
+    created_at,
     updated_at
 FROM users
 WHERE email = $1;

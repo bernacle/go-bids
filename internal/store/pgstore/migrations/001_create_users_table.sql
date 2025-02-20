@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT UNIQUE NOT NULL,
     password_hash BYTEA NOT NULL,
     bio TEXT NOT NULL,
-    create_at TIMESTAMPTZ NOT NULL DEFAULT now (),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now (),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now ()
 );
 
