@@ -188,6 +188,7 @@ func (c *Client) ReadEventLoop() {
 				Message: "this message should be a valid JSON",
 				UserID:  m.UserID,
 			}
+			continue
 		}
 
 		c.Room.Broadcast <- m
