@@ -1,7 +1,15 @@
-# Ignore bin directory
-/bin/
+# Ignore bin directory and its contents
+bin
 bin/
+/bin
+/bin/
+**/bin/
+**/bin/**
 
-# Ignore tmp directory
-/tmp/
+# Ignore tmp directory and its contents
+tmp
 tmp/
+/tmp
+/tmp/
+**/tmp/
+**/tmp/**
