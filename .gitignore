@@ -1,0 +1,7 @@
+# Ignore bin directory
+/bin/
+bin/
+
+# Ignore tmp directory
+/tmp/
+tmp/
